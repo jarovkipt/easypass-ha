@@ -1,0 +1,57 @@
+{
+  "title": "Thai Easy Pass",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect an Easy Pass account",
+        "description": "Enter the credentials used on the Thai Easy Pass member portal.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "Email address or other username accepted by the member portal.",
+          "password": "Stored locally by Home Assistant and sent only to the Easy Pass portal."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reconnect Thai Easy Pass",
+        "description": "Enter a new password for {username}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect to the Easy Pass portal",
+      "invalid_auth": "The username or password is incorrect. The portal may lock accounts after repeated failed attempts; this integration will not retry automatically.",
+      "two_factor_unsupported": "This account requires 2FA/OTP, which is not supported",
+      "no_cards": "No Easy Pass cards were found in this account",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This Easy Pass account is already configured",
+      "reauth_successful": "Thai Easy Pass was reconnected successfully"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "Balance"
+      },
+      "toll_this_month": {
+        "name": "Toll this month"
+      },
+      "topup_this_month": {
+        "name": "Top-up this month"
+      },
+      "trips_this_month": {
+        "name": "Trips this month"
+      },
+      "last_trip": {
+        "name": "Last trip"
+      }
+    }
+  }
+}
+

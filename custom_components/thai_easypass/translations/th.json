@@ -1,0 +1,57 @@
+{
+  "title": "Thai Easy Pass",
+  "config": {
+    "step": {
+      "user": {
+        "title": "เชื่อมต่อบัญชี Easy Pass",
+        "description": "กรอกข้อมูลที่ใช้เข้าสู่ระบบสมาชิก Thai Easy Pass",
+        "data": {
+          "username": "ชื่อผู้ใช้",
+          "password": "รหัสผ่าน"
+        },
+        "data_description": {
+          "username": "อีเมลหรือชื่อผู้ใช้ที่เว็บไซต์สมาชิกรองรับ",
+          "password": "เก็บไว้ใน Home Assistant และส่งไปยังเว็บไซต์ Easy Pass เท่านั้น"
+        }
+      },
+      "reauth_confirm": {
+        "title": "เชื่อมต่อ Thai Easy Pass ใหม่",
+        "description": "กรอกรหัสผ่านใหม่สำหรับ {username}",
+        "data": {
+          "password": "รหัสผ่าน"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "ไม่สามารถเชื่อมต่อเว็บไซต์ Easy Pass ได้",
+      "invalid_auth": "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง ระบบอาจล็อกบัญชีเมื่อกรอกผิดหลายครั้ง และ integration นี้จะไม่ลองซ้ำอัตโนมัติ",
+      "two_factor_unsupported": "บัญชีนี้เปิดใช้ 2FA/OTP ซึ่งยังไม่รองรับ",
+      "no_cards": "ไม่พบบัตร Easy Pass ในบัญชีนี้",
+      "unknown": "เกิดข้อผิดพลาดที่ไม่คาดคิด"
+    },
+    "abort": {
+      "already_configured": "บัญชี Easy Pass นี้ถูกเพิ่มแล้ว",
+      "reauth_successful": "เชื่อมต่อ Thai Easy Pass ใหม่สำเร็จ"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "balance": {
+        "name": "ยอดคงเหลือ"
+      },
+      "toll_this_month": {
+        "name": "ค่าผ่านทางเดือนนี้"
+      },
+      "topup_this_month": {
+        "name": "ยอดเติมเงินเดือนนี้"
+      },
+      "trips_this_month": {
+        "name": "จำนวนเที่ยวเดือนนี้"
+      },
+      "last_trip": {
+        "name": "เที่ยวล่าสุด"
+      }
+    }
+  }
+}
+
