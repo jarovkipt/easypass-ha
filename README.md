@@ -4,6 +4,19 @@ Unofficial, read-only Home Assistant integration for cards shown in the Thai
 Easy Pass member portal. It creates one Home Assistant device per card and
 updates balances and current-month usage every 30 minutes.
 
+## Project status
+
+The current release is
+[`v0.1.0-beta.1`](https://github.com/jarovkipt/easypass-ha/releases/tag/v0.1.0-beta.1).
+It is ready to install as a HACS custom repository but has not yet been
+submitted to the default HACS catalog.
+
+- Minimum Home Assistant version: 2026.6.0
+- Verified on Home Assistant 2026.7.4
+- GitHub Actions: unit tests, Ruff, hassfest, and HACS validation
+- Runtime dependencies: Home Assistant core libraries only
+- Release history: [CHANGELOG.md](CHANGELOG.md)
+
 > [!IMPORTANT]
 > This project is not affiliated with or endorsed by EXAT. It uses endpoints
 > used internally by the member portal, not a documented public API. Portal
@@ -26,7 +39,8 @@ more than ten cards.
 
 1. In HACS, open the three-dot menu and choose **Custom repositories**.
 2. Add `https://github.com/jarovkipt/easypass-ha` as an **Integration**.
-3. Download **Thai Easy Pass** and restart Home Assistant.
+3. Open **Thai Easy Pass**, enable beta versions if HACS does not show the
+   prerelease, download it, and restart Home Assistant.
 4. Go to **Settings → Devices & services → Add integration** and search for
    **Thai Easy Pass**.
 5. Enter the username and password used by the Easy Pass member portal.
@@ -59,6 +73,12 @@ Do not remove retained MQTT discovery topics until you intentionally cut over.
 Runtime code lives entirely in `custom_components/thai_easypass`. Tests use
 synthetic responses only; real portal dumps and credentials must never be
 committed.
+
+The initial beta has 15 tests covering login and CSRF parsing, card pagination,
+Thai and English transactions, config and reauthentication flows, partial API
+failures, sensor semantics, device creation, and diagnostics redaction. A
+separate read-only smoke test against the live member portal was also completed
+without recording portal responses or personal data.
 
 ```bash
 python -m pip install -e '.[test]'
